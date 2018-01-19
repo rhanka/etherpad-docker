@@ -52,7 +52,7 @@
                   },
 
   //the default text of a pad
-  "defaultPadText" : "Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n",
+  "defaultPadText" : "Bienvenue sur Etherpad!\n\nCe pad est synchronisé pendant votre frappe, ainsi tout le monde peut voir le même texte. Ceci permet une collaboration fluide sur vos documents de groupe!\n\nPlus d'info sur http:\/\/etherpad.org\n",
 
   /* Default Pad behavior, users can override by changing */
   "padOptions": {
@@ -66,11 +66,11 @@
     "rtl": false,
     "alwaysShowChat": false,
     "chatAndUsers": false,
-    "lang": "en-gb"
+    "lang": "fr"
   },
 
   /* Should we suppress errors from being visible in the default Pad Text? */
-  "suppressErrorsInPadText" : false,
+  "suppressErrorsInPadText" : true,
 
   /* Users must have a session to access pads. This effectively allows only group pads to be accessed. */
   "requireSession" : false,
