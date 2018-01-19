@@ -14,7 +14,7 @@ services:
   etherpad:
     build: 
       context: .
-      args:cat 
+      args:
         # proxy for npm & curl
         proxy: ${http_proxy}
     image: rhanka/etherpad
