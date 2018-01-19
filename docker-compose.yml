@@ -23,7 +23,7 @@ services:
       - "9001:9001"
     volumes:
 
-      - ./settings:/opt/etherpad-lite/var
+      - ./settings.json:/opt/etherpad/settings.json
     links:
       - mysql:mysql
     restart: always
