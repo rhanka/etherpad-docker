@@ -1,0 +1,29 @@
+version: '2'
+
+services: 
+  mysql:
+    image: mariadb
+    container_name: etherpad-mysql
+    environment:
+      MYSQL_DATABASE: 'etherpad'
+      MYSQL_USER: 'etherpad'
+      MYSQL_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - /data/bases/etherpad/mysql:/var/lib/mysql
+  etherpad:
+    build: 
+      context: .
+      args:cat 
+        # proxy for npm & curl
+        proxy: ${http_proxy}
+    image: rhanka/etherpad
+    container_name: etherpad
+    ports:
+      - "9001:9001"
+    volumes:
+
+      - ./settings:/opt/etherpad-lite/var
+    links:
+      - mysql:mysql
+    restart: always
