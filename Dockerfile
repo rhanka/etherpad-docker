@@ -3,12 +3,18 @@
 # https://github.com/ether/etherpad-docker
 #
 # Developed from a version by Evan Hazlett at https://github.com/arcus-io/docker-etherpad 
-#
+# 
 # Version 1.0
 
 # Use Docker's nodejs, which is based on ubuntu
 FROM node:latest
-MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
+MAINTAINER Fabien ANTOINE, fabien.antoine@m4x.org
+
+#proxy 
+ARG proxy
+ENV http_proxy $proxy
+ENV https_proxy $proxy
+
 
 # Get Etherpad-lite's other dependencies
 RUN apt-get update && apt-get install -y \
@@ -20,12 +26,12 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   python \
   supervisor \
-  
+  libreoffice-base-core \
   && rm -rf /var/lib/apt/lists/*
 
 
 # Grab the latest Git version
-RUN cd /opt && git clone https://github.com/ether/etherpad-lite.git etherpad
+RUN cd /opt && git clone https://github.com/rhanka/etherpad-lite etherpad
 
 # Install node dependencies
 RUN /opt/etherpad/bin/installDeps.sh
